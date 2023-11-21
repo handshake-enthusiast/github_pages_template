@@ -1,6 +1,6 @@
 name: Set CNAME
 
-on: create
+on: page_build
 
 permissions:
   contents: write
