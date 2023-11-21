@@ -11,10 +11,10 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Set CNAME
-      run: |
-        echo "${{ github.repository_owner }}.githubpage" > CNAME
-        git config --global user.name 'GitHub Action'
-        git config --global user.email 'action@github.com'
-        git add CNAME
-        git commit -m "Set custom CNAME"
-        git push
+      run: echo "${{ github.repository_owner }}.githubpage" > CNAME
+      # Sets the CNAME to <username>.githubpage
+
+    - name: Commit and Push changes
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Set custom CNAME
