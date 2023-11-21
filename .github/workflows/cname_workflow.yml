@@ -1,10 +1,10 @@
 name: Set CNAME
 
-on:
-  create:
+on: [push]
 
 jobs:
   set-cname:
+    if: ${{ github.repository != 'handshake-enthusiast/github_pages_template' }}
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
